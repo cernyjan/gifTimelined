@@ -7,7 +7,7 @@ GIF_FPS = 15
 GIF_HEIGH = 1080
 GIF_WIDTH = 1920
 GIF_FRAMES = 1
-COLOR = 0
+COLOR = 255
 BAR_SIZE = 0
 BAR_HEIGH = 5
 P = None
@@ -41,7 +41,7 @@ for f in range(GIF_FRAMES):
         if h >= GIF_HEIGH - BAR_HEIGH:
             if f > GIF_FPS - 1:
                 for w in range(BAR_SIZE*(f//GIF_FPS)):
-                    frames[f][h][w] = COLOR
+                    frames[f][h][w] = COLOR - frames[f][h][w]
         
 # Saving.
 gif = []
