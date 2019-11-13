@@ -22,6 +22,7 @@ thread_count = 0
 
 # Open the gif.
 def gif_open(filename):
+    print("Loading input file...")
     image = Image.open(filename)
     global P
     P = image.getpalette()
@@ -66,6 +67,7 @@ def get_target_path(source_path):
 
 # Saving.
 def gif_save(frames, file_path):
+    print("Saving output file...")
     gif = []
     for f in frames:
         im = Image.fromarray(f, mode='P')
@@ -90,6 +92,7 @@ def main():
 
     frames_count = len(frames)
     
+    print("Adding progress bar into file...")
     threads = []
     for f in range(frames_count):
         thread = Thread(target=add_progress_bar, args=(frames, f,))
